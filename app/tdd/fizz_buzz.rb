@@ -1,0 +1,3 @@
+class Tdd::FizzBuzz
+
+end
