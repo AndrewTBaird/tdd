@@ -1,3 +1,5 @@
-class Tdd::FizzBuzz
+class FizzBuzz
+  def self.do
 
+  end
 end
