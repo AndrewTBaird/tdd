@@ -43,4 +43,17 @@ RSpec.describe Phone do
     it { expect(described_class.do(2153)).to eq('two thousand one hundred and fifty three') }
     it { expect(described_class.do(7502)).to eq('seven thousand five hundred and two') }
   end
+
+  context '10,000s' do
+    it { expect(described_class.do(10503)).to eq('ten thousand five hundred and three') }
+    it { expect(described_class.do(44444)).to eq('forty four thousand four hundred and forty four') }
+    it { expect(described_class.do(99248)).to eq('ninety nine thousand two hundred and forty eight') }
+    it { expect(described_class.do(50000)).to eq('fifty thousand') }
+  end
+
+  context '100,000s' do
+    it { expect(described_class.do(500_000)).to eq('five hundred thousand') }
+    it { expect(described_class.do(345_978)).to eq('three hundred and forty five thousand nine hundred and seventy eight') }
+    it { expect(described_class.do(999_999)).to eq('nine hundred and ninety nine thousand nine hundred and ninety nine') }
+  end
 end

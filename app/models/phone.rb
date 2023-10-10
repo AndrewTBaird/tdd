@@ -2,22 +2,22 @@ class Phone
   class << self
     def do(number)
       return "" if number == 0
-      #ones
+      #ones - base case
       return unique_numbers(number) unless unique_numbers(number).nil?
 
       #tens
       if number < 100
-        return "#{unique_numbers(number - number%10)} #{self.do(number%10)}".strip
+        return "#{self.do(number - number%10)} #{self.do(number%10)}".strip
       end
 
       #hundreds
       if number > 99 && number < 1000
-        return "#{unique_numbers(number/100)} hundred" if number % 100 == 0
-        return "#{unique_numbers(number/100)} hundred and #{self.do(number%100)}"
+        return "#{self.do(number/100)} hundred" if number % 100 == 0
+        return "#{self.do(number/100)} hundred and #{self.do(number%100)}"
       end
 
       #thousands
-      "#{unique_numbers(number/1000)} thousand #{self.do(number %1000)}".strip
+      "#{self.do(number/1000)} thousand #{self.do(number %1000)}".strip
     end
 
     private
